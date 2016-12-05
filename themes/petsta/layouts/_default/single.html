@@ -1,0 +1,9 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+{{ if eq .Type "post" }}
+<h2>{{ .Date.Format "2006-01-02" }}</h2>
+{{ end }}
+{{ .Content }}
+
+{{ partial "footer.html" . }}
