@@ -1,10 +1,11 @@
 +++
 date = "2015-06-02T22:00:15+11:00"
 title = "Go, gofmt, and diffs"
+
+categories = ["Development", "GoLang"]
+tags = ["go", "golang", "gofmt", "fmt", "diff", "git", "whitespace", "ignore", "hg", "mercurial", "svn", "subversion", "github"]
 +++
 
-<!--Categories = ["Development", "GoLang"]-->
-<!--Tags = ["go", "golang", "gofmt", "fmt", "diff", "git", "whitespace", "ignore", "hg", "mercurial", "svn", "subversion", "github"]-->
 
 [Gofmt](https://golang.org/cmd/gofmt/) is a Go program formatter. Its universal
 adoption by the Go community has resulted in a consistent formatting style

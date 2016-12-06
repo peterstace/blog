@@ -6,4 +6,7 @@
 {{ end }}
 {{ .Content }}
 
+<hr/>
+Tags: {{ range .Params.tags }} {{ . }} {{ end }}
+
 {{ partial "footer.html" . }}

@@ -1,10 +1,11 @@
 +++
 date = "2015-06-18T22:03:45+11:00"
 title = "Irregular JSON decoding in Go"
+
+categories = ["Development", "GoLang"]
+tags = ["go", "golang", "json", "heterogeneous", "homogeneous", "marshal", "unmarshal", "regular", "irregular"]
 +++
 
-<!--Categories = ["Development", "GoLang"]-->
-<!--Tags = ["go", "golang", "json", "heterogeneous", "homogeneous", "marshal", "unmarshal", "regular", "irregular"]-->
 
 The Go standard library has an awesome [JSON encoding and decoding
 package](http://golang.org/pkg/encoding/json/), which makes handling JSON a
