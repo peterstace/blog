@@ -7,6 +7,6 @@
 {{ .Content }}
 
 <hr/>
-Tags: {{ range .Params.tags }} {{ . }} {{ end }}
+Tags: {{ delimit .Params.tags ", " }}
 
 {{ partial "footer.html" . }}
