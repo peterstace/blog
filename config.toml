@@ -5,3 +5,6 @@ theme = "petsta"
 [taxonomies]
 tag = "tags"
 category = "categories"
+
+[params]
+author = "Peter Stace"
