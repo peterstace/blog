@@ -39,24 +39,50 @@ of the path tracer.
 The first scene I implemented is the classic [Cornell
 Box](https://en.wikipedia.org/wiki/Cornell_box), originally created at Cornell
 University as a 3D test model. My take on the Cornell Box is slightly different
-from the original. In the rendering, you can diffuse reflections from the red
-and green walls onto the center blocks. You can also see soft shadows cast by
-the blocks onto the floor.
+from the original.
+
+The rendering contains:
+
+* A red 'left' wall.
+* A green 'right' wall.
+* A white floor and ceiling.
+* A white ceiling light.
+* Two white blocks.
+
+All surfaces are matte. A real wold example of a matte surface would be a
+non-glossy and slightly rough painted surface.
+
+In the rendering, you can observer:
+
+* Soft shadows being cast by the blocks onto the floor.
+* Green and red light being reflected off the green and red walls onto the
+  white center blocks.
+* Occlusion shadows, most visible in the back top corners of the room.
+
+In a traditional ray tracer, these three effects must be implemented as special
+cases (and it's very hard to do so accurately). In path tracing however, we get
+them 'for free' by virtue of having implemented diffuse reflections.
 
 ![Cornell Box](/static/images/cornell_box.png)
 
 ### Split Box
 
-My second rendering is of a procedurally generated scene of my own design. I
-took a cube, and repeatedly split it into two pieces along a random axis,
-shifting each piece slightly against the other.
+My second rendering is of a procedurally generated scene of my own design.  I
+started by taking a cube and splitting it into two pieces along a random axis.
+I then moved each piece slightly against the other. I repeated this on the
+remaining cubes over several dozen iterations. The cube stricture is white, and
+is situated underneath a white light. Like the Cornell Box, there are coloured
+walls to the left and right (off camera) that reflect coloured light into the
+scene.
 
 ![Split Box](/static/images/split_box.png)
 
 ### Sphere Tree
 
 My third rendering is also of a procedurally generated scene of my own design.
-I created a 'tree' out of sphere, attaching each child sphere to its parent
-sphere at a random location.
+I created a 'tree' structure out of spheres. I started with a large sphere
+centered in the floor, and randomly added two 'child' spheres to its surface. I
+then added two more child spheres to each of the original child spheres. This
+continued until I had several hundred spheres.
 
 ![Sphere Tree](/static/images/sphere_tree.png)
