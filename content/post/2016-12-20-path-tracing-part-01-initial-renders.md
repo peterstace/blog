@@ -63,7 +63,7 @@ In a traditional ray tracer, these three effects must be implemented as special
 cases (and it's very hard to do so accurately). In path tracing however, we get
 them 'for free' by virtue of having implemented diffuse reflections.
 
-![Cornell Box](/static/images/cornell_box.png)
+![Cornell Box](/static/images/cornell_box.jpg)
 
 ### Split Box
 
@@ -75,7 +75,7 @@ is situated underneath a white light. Like the Cornell Box, there are coloured
 walls to the left and right (off camera) that reflect coloured light into the
 scene.
 
-![Split Box](/static/images/split_box.png)
+![Split Box](/static/images/split_box.jpg)
 
 ### Sphere Tree
 
@@ -85,4 +85,4 @@ centered in the floor, and randomly added two 'child' spheres to its surface. I
 then added two more child spheres to each of the original child spheres. This
 continued until I had several hundred spheres.
 
-![Sphere Tree](/static/images/sphere_tree.png)
+![Sphere Tree](/static/images/sphere_tree.jpg)
