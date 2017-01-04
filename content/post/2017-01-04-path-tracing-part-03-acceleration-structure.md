@@ -1,7 +1,9 @@
 +++
-date = "2017-01-02T09:21:37+11:00"
+date = "2017-01-04T09:21:37+11:00"
 title = "Path Tracing Part 3 - Acceleration Structure"
-tags = []
+tags = ["acceleration", "path tracer", "ray", "intersection", "intersect",
+"object", "hit", "grid", "performance", "image", "naive", "DAA", "traversal",
+"computational complexity" ]
 categories = ["Programming", "Golang"]
 +++
 
@@ -9,10 +11,11 @@ I recently added an acceleration data structure to my [path
 tracer](https://github.com/peterstace/grayt). This resulted in a large
 performance improvement.
 
-It does this by improving the performance of the *global ray intersection test*, an
-integral part of any path tracer.
+The acceleration structure improves the speed of the *global ray intersection
+test*, an integral part of any path tracer.
 
-The source code can be found [here](TODO).
+The source code can be found
+[here](https://github.com/peterstace/grayt/blob/master/grayt/grid.go).
 
 ## Global Ray Intersection Test
 
@@ -28,7 +31,7 @@ type vector { x, y, z float64 }
 type ray { origin, dir float64 }
 ```
 
-The object with which to intersect is defined as follows:
+Objects in the scene are defined as:
 
 ```
 type object interface {
@@ -57,9 +60,8 @@ func (d *dataStructure) intersect(r ray) (unitNormal vector, distance float64, h
 }
 ```
 
-There are lots of different ways to implement the global ray intersection test.
-The performance characteristics of the global ray intersection test will have a
-large impact on the performance of the path tracer as a whole:
+There are lots of different ways to implement the global ray intersection test,
+and performance will always be an important consideration. This is because:
 
 * The global ray intersection test has to be executed a large number of times.
   In a path tracer, each ray cast from the camera may spawn 10s of secondary
@@ -69,8 +71,8 @@ that upwards to 10 billion ray intersection will be required to render a single
 image.
 
 * A single global ray intersection test itself is computationally expensive. It
-  must consider all of the objects in the scene. There may be 10s or even 100s
-of thousands of objects in the scene.
+  must consider all of the objects in the scene. There may be 100s of thousands
+of objects in the scene.
 
 ## Naive Implementation
 
@@ -114,12 +116,13 @@ func (o *objectList) intersect(r ray) (unitNormal vector, distance float64, hit 
 
 The main problem with the naive implementation is that it has to check each
 object in the scene for an intersection. If we can reduce the amount of
-intersection tests with individual objects, we can increase its performance.
+intersection tests with individual objects, we can increase the overall
+performance.
 
 ## Fast Implementation
 
 A "grid" data structure can allow us to dramatically increase the speed of the
-ray intersection test. It does this by cleverly reducing the number of
+global ray intersection test. It does this by cleverly reducing the number of
 individual object intersections tests we have to perform.
 
 The algorithm is split into two parts:
@@ -134,12 +137,12 @@ The algorithm is split into two parts:
 First a 3D grid created, the same size as the scene. Each object in the scene
 is checked to see which grid cell(s) it falls into. The objects are then stored
 into an array representing the grid for fast access. This data structure allows
-the list of scene objects in a given grid cell to be looked up in constant
+the list of scene objects in a given grid cell to be accessed in constant
 time.
 
 A 2D example is shown below:
 
-TODO: Image
+![Grid Population](/static/images/grid/grid.svg)
 
 ### Grid Traversal
 
@@ -149,31 +152,32 @@ cell is then tested for a ray intersection. If any of the objects in that cell
 intersect with the ray, then the result of the global ray intersection test is
 the intersection with the individual object that's closest to the start of the
 ray. If no object is detected, then we continue to the next cell and repeat.
-The global ray intersection check finishes when an intersection has been found,
+The global ray intersection check finishes when an intersection has been found
 or we have traversed all the way to the other side of the grid.
 
 There's a non-obvious edge case that must be accounted for. An object may be
-partially inside a particular cell, and also intersect with a ray. However, the
+partially inside a particular cell, and also intersect with a ray. However, if the
 intersection doesn't occur inside that cell, then we shouldn't count this
 intersection.
 
 The algorithm is fast because it's computationally cheap to iterate through the
-cells the grid that intersect with the ray. This is done using the BLAH method.
+cells in the grid that intersect with the ray. This is done using the
+[DAA](https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm))
+method.
 
-The following is an example of the grid traversal (and matches the grid above):
+The following is an example of the grid traversal:
 
-TODO: Image.
+![Grid Traversal](/static/images/grid/traverse.svg)
 
 1. The first cell the ray enters is *(0, 3)*. There is a single object in the
    cell, but it doesn't intersect with the ray. So we continue to the next
 cell.
 
-2. The next cell the ray enters is *(1, 3)*. There are two objects in the
-   cell. The ray doesn't intersect with the small circle. However, there is
-also a triangle in the cell (just its small corner). The ray *does* intersect
-with the ray, but *not* inside the cell we are currently in (this is the edge
-case describe above). We ignore this intersection and continue on to the next
-cell.
+2. The next cell the ray enters is *(1, 3)*. There are two objects in the cell.
+   The ray doesn't intersect with the circle. However, there is also a triangle
+in the cell (just a small part of its corner). The ray *does* intersect with
+the triangle, but *not* inside the cell we are currently in (this is the edge case
+describe previously). We ignore this intersection and continue on to the next cell.
 
 3. The next cell the ray enters is *(1, 2)*. There are no objects in this cell,
    so we continue to the next cell.
@@ -196,10 +200,11 @@ iterate through each object in the scene, checking for an intersection. Each
 object ray intersection test is constant time on its own.
 
 I haven't performed any formal computational complexity analysis of the grid
-algorithm. However, I suspect that the computational complexity is
-`O(n^(1/3))`. We are essentially iterating through a one dimensional sequence
-of grid cells in a 3 dimensional grid. So we only need to visit around
-`m^(1/3)` cells (where `m` is the total number of cells). Assuming that objects
-are evenly distributed throughout the cells, it follows that if there are `n`
-objects in the scene, then we would only have to perform `O(n^(1/3))`
-individual object ray intersect checks in total.
+algorithm. Assuming that the objects in the scene are evenly distributed, I
+suspect that the computational complexity is `O(n^(1/3))` (where `n` is the
+number of objects in the scene). We are essentially iterating through a one
+dimensional sequence of grid cells in a 3 dimensional grid. So we only need to
+visit `O(m^(1/3))` cells (where `m` is the total number of cells). It follows
+that if there are `n` objects in the scene, then we would only have to perform
+`O(n^(1/3))` individual object ray intersect test per global ray intersection
+test.
