@@ -85,4 +85,4 @@ centered in the floor, and randomly added two 'child' spheres to its surface. I
 then added two more child spheres to each of the original child spheres. This
 continued until I had several hundred spheres.
 
-![Sphere Tree](/static/images/sphere_tree.jpg)
+![Sphere Tree](/static/images/initial_render/sphere_tree.jpg)
