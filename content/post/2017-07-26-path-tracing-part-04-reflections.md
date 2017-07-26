@@ -8,7 +8,7 @@ categories = ["Programming", "Golang"]
 The mathematics behind specular reflection in path tracing (or ray tracing) is
 simple.
 
-When a reflective surface is encountered by a ray, the ray has to be recast
+When a ray encounters a reflective surface, the ray has to be recast
 following the rule "the angle of incidence is equal to the angle of
 reflection".
 
@@ -24,4 +24,4 @@ I recently added specular reflections to my path tracer,
 and contains 3 reflective mirrors (back and side walls), and 3 reflective
 spheres):
 
-TODO: Add 720p image.
+![Reflection scene](/static/images/reflect.jpg)
