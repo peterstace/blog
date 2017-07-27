@@ -10,5 +10,5 @@ hugo &&
     git add -A &&
     git commit -m "`date`" &&
     git push &&
-    git show &&
+    GIT_PAGER="cat" git show &&
     popd
