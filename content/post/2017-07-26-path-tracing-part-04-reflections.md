@@ -20,7 +20,7 @@ d_r = d_i - 2 * n . d_i
 ```
 
 I recently added specular reflections to my path tracer,
-[Grayt](https://github.com/petrestace/grayt). The following scene exhibits reflection,
+[Grayt](https://github.com/peterstace/grayt). The following scene exhibits reflection,
 and contains 3 reflective mirrors (back and side walls), and 3 reflective
 spheres):
 
