@@ -2,7 +2,7 @@
 title = "PGP Public Key"
 date = "2017-08-13"
 
-tags = [gpg, key, public]
+tags = ["gpg", "key", "public"]
 categories = []
 +++
 
