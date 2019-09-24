@@ -4,7 +4,7 @@ Repo contains Hugo site for my blog.
 
 ## Docker
 
-```
+```fish
 docker build -t hugo .
-docker run -v $PWD:/data hugo server -c /data
+docker run -u (id -u $USER) -v $PWD:/data hugo
 ```
