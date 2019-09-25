@@ -4,7 +4,14 @@ Repo contains Hugo site for my blog.
 
 ## Docker
 
+Server mode:
+
 ```fish
-docker build -t hugo .
-docker run -u (id -u $USER) -v $PWD:/data hugo
+docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data -p 8081:1313 hugo server --bind 0.0.0.0
+```
+
+Add new post:
+
+```fish
+docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-new-post.md
 ```

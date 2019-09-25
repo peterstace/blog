@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li><a href="/">Home</a>
+        <li><a href="/post/">Archive</a>
+        <li><a href="/categories/">Categories</a>
+        <li><a href="/about/">About</a>
+      </ul>
+    </div>
+    <div class="body">
+      <!-- TODO: nothing is showing up here correctly... -->
+      <h1>Jesus take the wheel</h1>
+      {{ range .Data.Pages }}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ end }}
+      <h1>Posts</h1>
+      {{ range .Data.Pages }}
+        {{ if eq .Type "post" }}
+          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+      {{ end }}
+      <h1>Pages</h1>
+      {{ range .Data.Pages }}
+        {{ if eq .Type "page" }}
+          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+      {{ end }}
+      <p>Copyright &copy; 2017 {{ .Site.Params.author }}</p>
+    </div>
+  </body>
+</html>

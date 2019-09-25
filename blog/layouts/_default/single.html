@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li><a href="/">Home</a>
+        <li><a href="/post/">Archive</a>
+        <li><a href="/categories/">Categories</a>
+        <li><a href="/about/">About</a>
+      </ul>
+    </div>
+    <div class="body">
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Type "post" }}
+      <h2>{{ .Date.Format "2006-01-02" }}</h2>
+      {{ end }}
+      {{ .Content }}
+      <hr/>
+      <!-- TODO: get tags working -->
+      <p>Copyright &copy; 2019 {{ .Site.Params.author }}</p>
+    </div>
+  </body>
+</html>
