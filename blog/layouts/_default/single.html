@@ -9,6 +9,14 @@
     {{ if eq .Type "post" }}
       <h3>{{ .Date.Format "2006-01-02" }}</h3>
     {{ end }}
+    <p>
+      Tags:
+      {{ range .Params.tags }}
+        {{ $relLink := printf "/tags/%s" ( . | urlize ) }}
+        {{ $tagPage := $.Site.GetPage $relLink }}
+        <a href="{{ $tagPage.Permalink }}">{{ . }}</a>
+      {{ end }}
+    </p>
     {{ .Content }}
     <p>Copyright &copy; 2019 {{ .Site.Params.author }}</p>
   </body>
