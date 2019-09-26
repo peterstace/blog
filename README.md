@@ -15,3 +15,13 @@ Add new post:
 ```fish
 docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-new-post.md
 ```
+
+## TODO
+
+- Reach parity with old site.
+	- Link to home
+- List template.
+- Dynamic copyright year.
+- Factor out header/footer.
+- Reduce to fixed with.
+- Misc styling.
