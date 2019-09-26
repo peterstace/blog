@@ -4,7 +4,6 @@ title = "Path Tracing Part 3 - Acceleration Structure"
 tags = ["acceleration", "path tracer", "ray", "intersection", "intersect",
 "object", "hit", "grid", "performance", "image", "naive", "DAA", "traversal",
 "computational complexity" ]
-categories = ["Programming", "Golang"]
 +++
 
 I recently added an acceleration data structure to my [path

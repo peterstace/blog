@@ -2,7 +2,6 @@
 date = "2015-06-18T22:03:45+11:00"
 title = "Irregular JSON decoding in Go"
 
-categories = ["Development", "GoLang"]
 tags = ["go", "golang", "json", "heterogeneous", "homogeneous", "marshal", "unmarshal", "regular", "irregular"]
 +++
 

@@ -2,7 +2,6 @@
 date = "2015-06-02T22:00:15+11:00"
 title = "Go, gofmt, and diffs"
 
-categories = ["Development", "GoLang"]
 tags = ["go", "golang", "gofmt", "fmt", "diff", "git", "whitespace", "ignore", "hg", "mercurial", "svn", "subversion", "github"]
 +++
 

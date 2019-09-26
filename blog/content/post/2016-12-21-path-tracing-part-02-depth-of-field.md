@@ -2,7 +2,6 @@
 date = "2016-12-21T19:03:38+11:00"
 title = "Path Tracing Part 2 - Depth of Field"
 tags = ["camera", "subject distance", "focus", "focal ratio", "aperture", "f-stop", "f-number", "depth of field", "ray", "path tracer"]
-categories = ["Programming", "Golang"]
 +++
 
 Real world cameras can only focus on objects that are a set distance away from

@@ -2,7 +2,6 @@
 title = "Path Tracing Part 4 - Reflections"
 date = 2017-07-26T13:52:57+10:00
 tags = ["path tracer", "ray", "reflection"]
-categories = ["Programming", "Golang"]
 +++
 
 The mathematics behind specular reflection in path tracing (or ray tracing) is

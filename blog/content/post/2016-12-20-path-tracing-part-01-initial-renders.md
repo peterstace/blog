@@ -1,7 +1,6 @@
 +++
 date = "2016-12-20T19:55:41+11:00"
 title = "Path Tracing Part 1 - Initial Renders"
-categories = ["Development", "Golang"]
 tags = ["grayt", "go", "golang", "ray tracer", "path tracer", "side project",
 "photo realistic", "render", "diffuse", "reflection", "matte", "cornell box"]
 +++

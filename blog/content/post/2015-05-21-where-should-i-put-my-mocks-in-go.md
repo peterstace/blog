@@ -2,7 +2,6 @@
 date = "2015-05-21T21:51:39+11:00"
 title = "Where should I put my mocks in Go?"
 
-categories = ["Development", "GoLang"]
 tags = ["golang", "go", "mock", "test", "testing", "production", "binary", "stub", "package", "API", "godoc", "gomock"]
 +++
 

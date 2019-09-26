@@ -1,7 +1,6 @@
 +++
 date = "2017-01-11T21:14:51+11:00"
 title = "Panic and Recover as Error Handling Mechanisms in Go"
-categories = [ "Development", "GoLang" ]
 tags = [ "go", "golang", "idiomatic", "error", "type assertion", "torrent", "decoder" ]
 +++
 

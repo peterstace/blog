@@ -3,7 +3,6 @@ date = "2016-01-06T22:17:35+11:00"
 title = "Bolt250 Part 1 - The Unboxing"
 
 tags = ["boltrc", "bolt250", "fpv", "quadcopter", "multicopter"]
-categories = ["Quadcopters"]
 +++
 
 
