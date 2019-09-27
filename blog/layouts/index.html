@@ -1,0 +1,18 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body>
+    <a href="/">home</a>
+    <a href="/about">about</a>
+    <h1>Posts</h1>
+    {{ range .Site.RegularPages }}
+      {{ if eq .Type "post" }}
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ end }}
+    {{ end }}
+    <p>Copyright &copy; 2019 {{ .Site.Params.author }}</p>
+  </body>
+</html>

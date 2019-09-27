@@ -2,20 +2,26 @@
 
 Repo contains Hugo site for my blog.
 
-## Publishing
+## Docker
 
-```
-$ ./delpoy.sh
-```
+Server mode:
 
-## Running Locally
-
-```
-$ hugo server --port 8080 --bind 0.0.0.0
+```fish
+docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data -p 8081:1313 hugo server --bind 0.0.0.0
 ```
 
-## Creating a New Blog Post
+Add new post:
 
+```fish
+docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-new-post.md
 ```
-hugo new post/YYYY-MM-DD-title-goes-here.md
-```
+
+## TODO
+
+- List template.
+- Dynamic copyright year.
+- Factor out header/footer.
+- Reduce to fixed with.
+- Misc styling.
+- Docker-compose for server.
+- Script for adding a new post.
