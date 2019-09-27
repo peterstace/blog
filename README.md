@@ -23,3 +23,5 @@ docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-n
 - Factor out header/footer.
 - Reduce to fixed with.
 - Misc styling.
+- Docker-compose for server.
+- Script for adding a new post.
