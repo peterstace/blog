@@ -1,3 +1,6 @@
-baseURL: "http://peterstace.io/"
-languageCode: "en-us"
-title: "Peter Stace"
+baseURL: http://peterstace.io/
+languageCode: en-us
+title: Peter Stace
+
+params:
+  author: Peter Stace
