@@ -25,3 +25,4 @@ docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-n
 - Docker-compose for server.
 - Script for adding a new post.
 - Fix copyright for list template.
+- Pointing at an outdated IP address, see: https://help.github.com/en/articles/using-a-custom-domain-with-github-pages
