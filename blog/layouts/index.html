@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="/css/main.css"/>
   </head>
   <body>
+    <a href="/">home</a>
+    <a href="/about">about</a>
     <h1>Posts</h1>
     {{ range .Site.RegularPages }}
       {{ if eq .Type "post" }}

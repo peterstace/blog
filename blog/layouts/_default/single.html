@@ -5,19 +5,23 @@
     <link rel="stylesheet" href="/css/main.css"/>
   </head>
   <body>
+    <a href="/">home</a>
+    <a href="/about">about</a>
     <h1>{{ .Title }}</h1>
     {{ if eq .Type "post" }}
       <h3>{{ .Date.Format "2006-01-02" }}</h3>
     {{ end }}
     <p>
-      tags:
-      {{ range .Params.tags }}
-        <!-- Tags are disabled until the list template works.
-        {{ $relLink := printf "/tags/%s" ( . | urlize ) }}
-        {{ $tagPage := $.Site.GetPage $relLink }}
-        <a href="{{ $tagPage.Permalink }}">{{ . }}</a>
-        -->
-        {{ . }}
+      {{ if .Params.tags }}
+        tags:
+        {{ range .Params.tags }}
+          <!-- Tags are disabled until the list template works.
+          {{ $relLink := printf "/tags/%s" ( . | urlize ) }}
+          {{ $tagPage := $.Site.GetPage $relLink }}
+          <a href="{{ $tagPage.Permalink }}">{{ . }}</a>
+          -->
+          {{ . }}
+        {{ end }}
       {{ end }}
     </p>
     <p>{{ .Content }}</p>

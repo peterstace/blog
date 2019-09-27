@@ -18,8 +18,6 @@ docker run -u (id -u $USER):(id -g $USER) -v $PWD/blog:/data hugo new posts/my-n
 
 ## TODO
 
-- Reach parity with old site.
-	- Link to home
 - List template.
 - Dynamic copyright year.
 - Factor out header/footer.
