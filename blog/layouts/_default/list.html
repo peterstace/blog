@@ -1,17 +1,6 @@
-<!DOCTYPE>
-<html>
-  <head>
-    <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/css/main.css"/>
-  </head>
-  <body>
-    <a href="/">home</a>
-    <a href="/about">about</a>
-    {{ range .Pages }}
-    <h2>{{ .Title }}</h2>  
-    {{ end }}
-    <!-- TODO: set copyright correctly -->
-    <p>Copyright &copy; 2019 {{ .Site.Params.author }}</p>
-  </body>
-</html>
+{{ define "main" }}
+  <h2>{{ .Title }}</h2>  
+  <!-- TODO: set copyright correctly -->
+  <p>Copyright &copy; 2019 {{ .Site.Params.author }}</p>
+{{ end }}
 

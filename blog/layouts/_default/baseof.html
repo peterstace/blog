@@ -1,0 +1,12 @@
+<!DOCTYPE>
+  <head>
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body>
+    <a href="/">home</a>
+    <a href="/about">about</a>
+    {{ block "main" . }}
+    {{ end }}
+  </body>
+</html>

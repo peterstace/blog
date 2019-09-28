@@ -1,23 +1,14 @@
-<!DOCTYPE>
-<html>
-  <head>
-    <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/css/main.css"/>
-  </head>
-  <body>
-    <a href="/">home</a>
-    <a href="/about">about</a>
-    <h1>Posts</h1>
-    {{ range .Site.RegularPages }}
-      {{ if eq .Type "post" }}
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      {{ end }}
+{{ define "main" }}
+  <h1>Posts</h1>
+  {{ range .Site.RegularPages }}
+    {{ if eq .Type "post" }}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     {{ end }}
-    {{ range $.Site.Pages }}
-      {{ if (.Date) lt ($.Scratch.Get "copyDate") }}
-        {{ $.Scratch.Set "copyDate" .Date }}
-      {{ end }}
+  {{ end }}
+  {{ range $.Site.Pages }}
+    {{ if (.Date) lt ($.Scratch.Get "copyDate") }}
+      {{ $.Scratch.Set "copyDate" .Date }}
     {{ end }}
-    <p>Copyright &copy; {{ ($.Scratch.Get "copyDate").Format "2006" }} {{ .Site.Params.author }}</p>
-  </body>
-</html>
+  {{ end }}
+  <p>Copyright &copy; {{ ($.Scratch.Get "copyDate").Format "2006" }} {{ .Site.Params.author }}</p>
+{{ end }}
