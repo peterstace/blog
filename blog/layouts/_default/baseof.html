@@ -7,8 +7,10 @@
   <body>
     <a href="/">home</a>
     <a href="/about">about</a>
-    {{ block "main" . }}
-    {{ end }}
+    <div style="width:35rem;margin:auto;">
+      {{ block "main" . }}
+      {{ end }}
+    </div>
     <p>
       Copyright &copy;
       {{ block "copyYear" . }}{{end}}
