@@ -8,5 +8,10 @@
     <a href="/about">about</a>
     {{ block "main" . }}
     {{ end }}
+    <p>
+      Copyright &copy;
+      {{ block "copyYear" . }}{{end}}
+      {{ $.Site.Params.author }}
+    </p>
   </body>
 </html>

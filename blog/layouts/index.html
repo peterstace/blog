@@ -5,10 +5,13 @@
       <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     {{ end }}
   {{ end }}
+{{ end }}
+
+{{ define "copyYear" }}
   {{ range $.Site.Pages }}
     {{ if (.Date) lt ($.Scratch.Get "copyDate") }}
       {{ $.Scratch.Set "copyDate" .Date }}
     {{ end }}
   {{ end }}
-  <p>Copyright &copy; {{ ($.Scratch.Get "copyDate").Format "2006" }} {{ .Site.Params.author }}</p>
+  {{ ($.Scratch.Get "copyDate").Format "2006" }}
 {{ end }}

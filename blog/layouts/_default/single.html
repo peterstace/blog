@@ -17,5 +17,8 @@
     {{ end }}
   </p>
   <p>{{ .Content }}</p>
-  <p>Copyright &copy; {{ .Date.Format "2006" }} {{ .Site.Params.author }}</p>
+{{ end }}
+
+{{ define "copyYear" }}
+  {{ .Date.Format "2006" }}
 {{ end }}
